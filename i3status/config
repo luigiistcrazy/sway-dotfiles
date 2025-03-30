@@ -1,0 +1,57 @@
+# i3status configuration file.
+# see "man i3status" for documentation.
+
+# It is important that this file is edited as UTF-8.
+# The following line should contain a sharp s:
+# ß
+# If the above line is not correctly displayed, fix your editor first!
+
+general {
+	# output_format = "i3bar"
+        colors = true
+        interval = 1
+}
+
+order += "ethernet _first_"
+order += "cpu_usage"
+order += "memory"
+order += "disk /"
+order += "volume master"
+order += "read_file uptime"
+order += "tztime local"
+
+ethernet _first_ {
+        format_up = " Plz don't haxx :3 %ip (%speed) "
+        format_down = " Useless fucking shit network is down "
+}
+
+cpu_usage {
+	format = " Fucking useless metric: %usage "
+}
+
+memory {
+        format = " Fuck swap: %used | %available "
+        threshold_degraded = "1G"
+        format_degraded = "MEMORY < %available"
+}
+
+disk "/" {
+  format = " Space left for P0rn: %avail "
+}
+
+volume master {
+	device = "default"
+	mixer = "Master"
+	mixer_idx = 0
+	format = " %volume 🗣️ "
+	format_muted = " Shhh "
+}
+
+read_file uptime {
+	path = "/tmp/uptime"
+	format = " Gooning counter: %content "
+}
+
+tztime local {
+        format = " %Y-%m-%d %H:%M:%S (Go to sleep) "
+}
